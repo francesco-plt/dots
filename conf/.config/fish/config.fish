@@ -14,8 +14,6 @@ fish_add_path $HOME/.cargo/bin
 set HOMEBREW_NO_ENV_HINTS
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
-export PMIP_CBC_LIBRARY=/Users/francesco/workspace/for-lab/cbclib/libCbc.dylib
-# set -a LD_LIBRARY_PATH $HOME/francesco/workspace/for-lab/cbclib
 
 # functions
 
