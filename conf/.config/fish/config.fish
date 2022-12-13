@@ -41,7 +41,6 @@ end
 
 # aliases
 
-alias pivpn="sudo /opt/homebrew/opt/openvpn/sbin/openvpn --config /Users/francesco/mbp.ovpn"
 alias l="exa"
 alias ll="exa -l"
 alias la="exa -la"
