@@ -1,2 +1,0 @@
-#!/opt/homebrew/bin/fish
-brew update && brew upgrade && brew cleanup

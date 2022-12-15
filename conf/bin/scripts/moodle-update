@@ -1,2 +1,0 @@
-#!/opt/homebrew/bin/fish
-cd $HOME/misc/Moodle-Downloader-2 && source venv/bin/activate.fish && ./moodle-dl
