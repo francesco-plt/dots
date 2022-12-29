@@ -8,12 +8,21 @@ fish_add_path /opt/homebrew/bin
 fish_add_path $HOME/bin
 fish_add_path $HOME/bin/scripts
 fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/go/bin
+fish_add_path $HOME/.aido
 
 # other path variables
 
 set HOMEBREW_NO_ENV_HINTS
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
+
+# login greeting
+
+# function fish_greeting
+#     command echo 'Welcome to fish, the friendly interactive shell'
+#     command echo 'Type help for instructions on how to use fish'
+#     command 
 
 # functions
 
@@ -37,6 +46,10 @@ function create_link
     command echo $fcontent > $fname
 end
 
+function logg
+     command cat $argv[1] | less
+ end
+
 # aliases
 
 alias l="exa"
@@ -52,6 +65,11 @@ alias src="source $HOME/.config/fish/config.fish"
 alias cfg="micro $HOME/.config/fish/config.fish"
 alias newenv="python3 -m venv venv"
 alias makee="make -j$(nproc)"
+alias h="aido"
 
 # bootstrapping thefuck
 thefuck --alias | source
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /opt/homebrew/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.fish ]; and . /opt/homebrew/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.fish
