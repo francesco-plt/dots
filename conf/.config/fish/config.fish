@@ -19,10 +19,9 @@ export LIBRARY_PATH=/opt/homebrew/lib
 
 # login greeting
 
-# function fish_greeting
-#     command echo 'Welcome to fish, the friendly interactive shell'
-#     command echo 'Type help for instructions on how to use fish'
-#     command 
+function fish_greeting
+    printf "%s\n%s\n%s\n%s\n" "Welcome to fish, the friendly interactive shell" "Elegant prompts, autosuggestions as well" "A joy to use, it's heaven sent" "An improved experience, time well spent"
+end
 
 # functions
 
@@ -61,11 +60,13 @@ alias pp="python3 -m pip"
 alias py="ipython"
 alias m="micro"
 alias c="code -n"
+alias ci="code-insiders -n"
 alias src="source $HOME/.config/fish/config.fish"
 alias cfg="micro $HOME/.config/fish/config.fish"
 alias newenv="python3 -m venv venv"
 alias makee="make -j$(nproc)"
 alias h="aido"
+alias gcm="git commit -m"
 
 # bootstrapping thefuck
 thefuck --alias | source
