@@ -1,8 +1,8 @@
 function fish_prompt
   echo ''
+  
   set curdir (basename $PWD)
   set homedir (basename $HOME)
-
   # shortening user home directory
   # for brevity
   if test "$curdir" = "$homedir"
@@ -25,8 +25,14 @@ function fish_prompt
     set hname (string sub -e -6 $hname)
   end
 
+  # and now let's customize the prompt:
+  set pmptchar '➜'
+  if test $status -ne 0
+    set pmptchar 'x'
+  end
+  
   echo (set_color brcyan)(whoami)' '(set_color brblack)$hname
-  echo (set_color brpurple)'['$curdir']' (set_color purple)'➜ '
+  echo (set_color brpurple)'['$curdir']' (set_color purple)$pmptchar' '
 end
 
 # good old minimal prompt in case we get tired of the above verobosity

@@ -20,10 +20,14 @@ export LIBRARY_PATH=/opt/homebrew/lib
 # login greeting
 
 function fish_greeting
-    printf "%s\n%s\n%s\n%s\n" "Welcome to fish, the friendly interactive shell" "Elegant prompts, autosuggestions as well" "A joy to use, it's heaven sent" "An improved experience, time well spent"
+    printf "%s\n%s\n%s\n%s\n" "Welcome to "(set_color brgreen)"fish"(set_color normal)", the friendly interactive shell" "Elegant prompts, autosuggestions as well" "A joy to use, it's heaven sent" "An improved experience, time well spent"
 end
 
 # functions
+
+function gcm
+    command git add . && git commit -m $argv[1] && git push
+end
 
 function where
     command type -a $argv[1]
@@ -57,7 +61,9 @@ alias la="exa -la"
 alias gc="git clone"
 alias p="python3"
 alias pp="python3 -m pip"
-alias py="ipython"
+alias py="python3 -m IPython"
+alias pv="python3 --version"
+alias ppf="python3 -m pip freeze > requirements.txt"
 alias m="micro"
 alias c="code -n"
 alias ci="code-insiders -n"
@@ -66,7 +72,6 @@ alias cfg="micro $HOME/.config/fish/config.fish"
 alias newenv="python3 -m venv venv"
 alias makee="make -j$(nproc)"
 alias h="aido"
-alias gcm="git commit -m"
 
 # bootstrapping thefuck
 thefuck --alias | source
