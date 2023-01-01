@@ -20,7 +20,12 @@ export LIBRARY_PATH=/opt/homebrew/lib
 # login greeting
 
 function fish_greeting
-    printf "%s\n%s\n%s\n%s\n" "Welcome to "(set_color brgreen)"fish"(set_color normal)", the friendly interactive shell" "Elegant prompts, autosuggestions as well" "A joy to use, it's heaven sent" "An improved experience, time well spent"
+    printf "%s%s\n%s\n%s\n%s\n%s\n" \
+        (set_color brcyan)(whoami)": " (set_color brblack)"Hey ChatGPT, write an haiku on fish shell" \
+        (set_color brcyan)"ChatGPT: "(set_color normal)"Welcome to "(set_color brgreen)"fish"(set_color normal)", the friendly interactive shell" \
+        "Elegant prompts, autosuggestions as well" \
+        "A joy to use, it's heaven sent" \
+        "An improved experience, time well spent"
 end
 
 # functions

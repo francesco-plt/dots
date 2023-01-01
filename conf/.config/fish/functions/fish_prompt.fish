@@ -2,6 +2,8 @@ function fish_prompt
   echo ''
   
   set curdir (basename $PWD)
+  set dircolor brpurple
+
   set homedir (basename $HOME)
   # shortening user home directory
   # for brevity
@@ -15,6 +17,16 @@ function fish_prompt
   # 6 chars
   if test (string length $curdir) -gt 6
     set curdir (string sub -s 1 -l 4 $curdir)'..'(string sub -s -1 $curdir)
+  end
+
+  # also if the directory we're in is called docs
+  # and the parent is a repo (it has a .git folder)
+  # we'll just show the repo name + docs emoji
+  if test "$curdir" = "docs"
+    set parentdir (basename (dirname $PWD))
+    if test -d ../.git
+      set curdir '📚 '$parentdir'/d'
+    end
   end
 
   # shortening hostname
@@ -31,8 +43,8 @@ function fish_prompt
     set pmptchar 'x'
   end
   
-  echo (set_color brcyan)(whoami)' '(set_color brblack)$hname
-  echo (set_color brpurple)'['$curdir']' (set_color purple)$pmptchar' '
+  echo (set_color brblack)'{'(set_color brcyan)(whoami)(set_color brblack)'|'(set_color brgreen)$hname(set_color brblack)'}'
+  echo (set_color $dircolor)'['$curdir']' (set_color purple)$pmptchar' '
 end
 
 # good old minimal prompt in case we get tired of the above verobosity
