@@ -19,14 +19,26 @@ function fish_prompt
     set curdir (string sub -s 1 -l 4 $curdir)'..'(string sub -s -1 $curdir)
   end
 
-  # also if the directory we're in is called docs
+  # if the directory we're in is called docs
   # and the parent is a repo (it has a .git folder)
   # we'll just show the repo name + docs emoji
   if test "$curdir" = "docs"
     set parentdir (basename (dirname $PWD))
     if test -d ../.git
-      set curdir '📚 '$parentdir'/d'
+      set curdir "📚 $curdir/d"
     end
+  end
+
+  # if the directory we're in is a .git repository
+  # we'll show the repo name + git emoji
+  if test -d .git
+    set curdir "🐙 $curdir"
+  end
+
+  # if there is a python virtual environment
+  # active we'll show the python emoji
+  if test -n "$VIRTUAL_ENV"
+    set curdir "🐍 $curdir"
   end
 
   # shortening hostname
