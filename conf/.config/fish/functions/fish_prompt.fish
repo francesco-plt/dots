@@ -1,3 +1,9 @@
+function other_prompt
+  echo ''
+  set_color cyan; echo (basename $PWD)
+  set_color purple; echo '➜ '
+end
+
 function fish_prompt
   echo ''
   
@@ -25,14 +31,20 @@ function fish_prompt
   if test "$curdir" = "docs"
     set parentdir (basename (dirname $PWD))
     if test -d ../.git
-      set curdir "📚 $curdir/d"
+      set curdir "📚$curdir/d"
     end
   end
-
+  
   # if the directory we're in is a .git repository
   # we'll show the repo name + git emoji
-  if test -d .git
-    set curdir "🐙 $curdir"
+  set full_path_curdir (pwd)
+  while test "$full_path_curdir" != "/"
+      if test -d $full_path_curdir"/.git"
+          set curdir "🐙$curdir"
+          set curbranch (git symbolic-ref --short HEAD)
+          break
+      end
+      set full_path_curdir (dirname "$full_path_curdir")
   end
 
   # if there is a python virtual environment
@@ -51,11 +63,17 @@ function fish_prompt
 
   # and now let's customize the prompt:
   set pmptchar '➜'
-  if test $status -ne 0
-    set pmptchar 'x'
+  if fish_is_root_user
+    set pmptchar '#'$pmptchar
   end
   
-  echo (set_color brblack)'{'(set_color brcyan)(whoami)(set_color brblack)'|'(set_color brgreen)$hname(set_color brblack)'}'
+  # we want to show the name of the git branch
+  # if we're in a git repository
+  if test -n $curbranch
+    echo (set_color brblack)'{'(set_color brcyan)(whoami)(set_color brblack)'|'(set_color brgreen)$hname(set_color brblack)'} on '(set_color brblue)''$curbranch'!'
+  else
+    echo (set_color brblack)'{'(set_color brcyan)(whoami)(set_color brblack)'|'(set_color brgreen)$hname(set_color brblack)'}'
+  end
   echo (set_color $dircolor)'['$curdir']' (set_color purple)$pmptchar' '
 end
 

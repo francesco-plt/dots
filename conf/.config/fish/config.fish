@@ -13,7 +13,7 @@ fish_add_path $HOME/.aido
 
 # other path variables
 
-set HOMEBREW_NO_ENV_HINTS
+export HOMEBREW_NO_ENV_HINTS=true
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 
@@ -60,6 +60,7 @@ function logg
 
 # aliases
 
+alias uni="cd '/Users/francesco/OneDrive - Politecnico di Milano/Courses'"
 alias l="exa"
 alias ll="exa -l"
 alias la="exa -la"
