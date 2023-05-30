@@ -1,0 +1,48 @@
+#!/bin/bash
+# Tiny colored fetch script
+# Requires Typicons Font to display the icons
+# elenapan @ github
+# sligtly modified version for macos
+# by francesco-plt @ github
+
+# coloring
+f=3 b=4
+for j in f b; do
+  for i in {0..7}; do
+    printf -v $j$i %b "\e[${!j}${i}m"
+  done
+done
+d=$'\e[1m'
+t=$'\e[0m'
+v=$'\e[7m'
+colors=$(for i in {0..7}; do echo -en "\e[${1}$((30 + $i))m▁▁▁"; done)
+
+# items
+h=os
+osver=$(sw_vers -ProductVersion)
+
+k=kr
+kernel="$(uname -r | cut -d '-' -f1)"
+
+sh=sh
+shell=$(basename $SHELL)
+
+o=os
+os="$(uname -s)"
+
+
+    #    ___  
+    #   /  .\ 
+    #  /  =__|
+    # /    ||
+
+
+tput clear
+cat << EOF
+
+       ___  
+      /  $f5.$t\   $f4$k $t~ $kernel 
+     /  =__|  $f5$h $t~ $osver  
+    /    ||   $f2$sh $t~ $shell
+
+EOF
