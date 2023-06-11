@@ -20,6 +20,8 @@ paths = [
     home / ".config" / "fish" / "config.fish",
     home / ".config" / "fish" / "functions" / "fish_prompt.fish",
     home / "bin" / "scripts",
+    home / "Library" / "Application Support" / "Code" / "User" / "settings.json",
+    home / "Library" / "Application Support" / "Firefox" / "Profiles" / "q1iodtvn.default-release" / "chrome"
 ]
 
 

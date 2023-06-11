@@ -1,0 +1,180 @@
+{
+	"workbench.colorTheme": "Default Dark+",
+	"workbench.preferredLightColorTheme": "Solarized Light",
+	"workbench.preferredDarkColorTheme": "Default Dark+",
+    "editor.inlineSuggest.enabled": true,
+    "editor.accessibilitySupport": "off",
+    "editor.fontSize": 15,
+	"editor.minimap.renderCharacters": false,
+	"editor.fontLigatures": true,
+	"editor.fontFamily": "'Fragment Mono', 'Input Mono', 'SF Mono', Menlo, Monaco, monospace",
+	"editor.rulers": [
+		{
+			"color": "#42424240",
+			"column": 80
+		}
+	],
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+	"telemetry.telemetryLevel": "off",
+	"debug.console.fontSize": 14.5,
+    "git.openRepositoryInParentFolders": "always",
+	"git.confirmSync": false,
+	"git.autofetch": true,
+	"remote.SSH.useLocalServer": false,
+	"python.diagnostics.sourceMapsEnabled": true,
+	"python.formatting.provider": "black",
+	"explorer.confirmDragAndDrop": false,
+	"liveServer.settings.donotShowInfoMsg": true,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"git.enableSmartCommit": true,
+	// copilot
+    "github.copilot.enable": {
+		"*": true,
+		"yaml": true,
+		"plaintext": true,
+		"markdown": true,
+		"scminput": false
+	},
+	// language settings
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"workbench.editorAssociations": {
+		"*.pdf": "latex-workshop-pdf-hook"
+	},
+	"grammarly.files.include": [
+		"**/readme.md",
+		"**/README.md",
+		"**/*.txt",
+		"**/*.tex"
+	],
+	"[latex]": {
+		"editor.defaultFormatter": "mathematic.vscode-latex",
+		"editor.formatOnSave": true,
+		"editor.wordWrap": "on"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[python]": {
+		"editor.formatOnSave": true
+    },
+	// latex
+    "files.exclude": {
+		"**/.git": true,
+		"**/*.aux": true,
+		"**/*.bbl": true,
+		"**/*.bcf": true,
+		"**/*.blg": true,
+		"**/*.fdb_latexmk": true,
+		"**/*.fls": true,
+		"**/*.glg": true,
+		"**/*.glo": true,
+		"**/*.gls": true,
+		"**/*.glsdefs": true,
+		"**/*.idx": true,
+		"**/*.ilg": true,
+		"**/*.ind": true,
+		"**/*.lof": true,
+		"**/*.log": true,
+		"**/*.lot": true,
+		"**/*.mw": true,
+		"**/*.nlo": true,
+		"**/*.nls": true,
+		"**/*.out": true,
+		"**/*.run.xml": true,
+		"**/*.synctex.gz": true,
+		"**/*.thm": true,
+		"**/*.toc": true,
+		"**/*.xdy": true
+	},
+	"latex-workshop.latex.autoBuild.run": "onSave",
+	"latex-workshop.view.pdf.zoom": "page-fit",
+	"latex-workshop.latex.tools": [
+		{
+		"name": "lualatex",
+		"command": "lualatex",
+		"args": [
+			"-shell-escape",
+			"-synctex=1",
+			"-interaction=nonstopmode",
+			"-file-line-error",
+			"-pdf",
+			"-output-directory=%OUTDIR%",           
+			"%DOC%"
+		],
+		"env": {}
+		},
+	
+		{
+		"name": "pdflatex",
+		"command": "pdflatex",
+		"args": [
+			"-synctex=1",
+			"-interaction=nonstopmode",
+			"-file-line-error",
+			"-output-directory=%OUTDIR%",
+			"%DOC%"
+		],
+		"env": {}
+		},
+	
+		{
+		"name": "biber",
+		"command": "biber",
+		"args": [
+			"%DOCFILE%"
+		],
+		"env": {}
+		},
+		{
+			"name": "bibtex",
+			"command": "bibtex",
+			"args": [
+				"%DOCFILE%"
+			],
+			"env": {}
+		}
+	],
+	"latex-workshop.latex.recipes": [
+		{
+			"name": "lualatex",
+			"tools": [
+				"lualatex"
+			]
+		},
+		{
+			"name": "lualatex -> bibtex -> lualatex",
+			"tools": [
+				"lualatex",
+				"bibtex",
+				"lualatex"
+			]
+		},
+		{
+			"name": "pdflatex -> biber -> pdflatex TWICE",
+			"tools": [
+				"pdflatex",
+				"biber",
+				"pdflatex",
+				"pdflatex"
+			]
+		}        
+	],
+	"latex.formatter.columnLimit": 65,
+	"latex-workshop.latex.recipe.default": "lualatex -> bibtex -> lualatex",
+	"latex-workshop.latexindent.path": "/Library/TeX/texbin/latexindent",
+	// codegpt
+	"revision.maxTokens": 2000,
+	"revision.openAIApiKey": "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",
+	"CodeGPT.temperature": 0.5,
+	"workbench.colorCustomizations": {},
+}
