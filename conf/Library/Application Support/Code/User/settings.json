@@ -172,9 +172,4 @@
 	"latex.formatter.columnLimit": 65,
 	"latex-workshop.latex.recipe.default": "lualatex -> bibtex -> lualatex",
 	"latex-workshop.latexindent.path": "/Library/TeX/texbin/latexindent",
-	// codegpt
-	"revision.maxTokens": 2000,
-	"revision.openAIApiKey": "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",
-	"CodeGPT.temperature": 0.5,
-	"workbench.colorCustomizations": {},
 }
